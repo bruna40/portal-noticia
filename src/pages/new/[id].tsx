@@ -1,8 +1,15 @@
-import { useRouter } from "next/router"
+import { ContainerNew } from "./style";
 
 export default function New() {
-  const {query} = useRouter()
+
   return (
-    <h1>ID: {JSON.stringify(query)}</h1>
+    <ContainerNew>
+        <h1>Titulo reportagem: exemploxxxx</h1>
+        <p>Autor: Bruna</p>
+        <article>
+            <p>Conteudo da reportagem</p>
+        </article>
+    </ContainerNew>
+
   )
 }
