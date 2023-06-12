@@ -1,4 +1,4 @@
-import { styled } from "../../pages/styles";
+import { styled } from "../../styles";
 
 export const ContainerHeader = styled('header', {
     display: 'flex',

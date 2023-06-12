@@ -1,14 +1,55 @@
-import { styled } from "./styles"
+import Link from "next/link";
+import { ContainerHome } from "../styles/pages";
 
-const Button = styled('button', {
-  backgroundColor: '$white',
-  borderRadius: 4,
-  border: 0,
-  padding: '4px 8px',
-})
 
 export default function Home() {
   return (
-    <Button>Send</Button>
+    <ContainerHome>
+      <div>
+        <h3>Extra, extra</h3>
+        <span>
+          <p>Autor:Bruna</p>
+          <Link href="/new/1">
+            Ver notícia completa
+          </Link>
+        </span>
+      </div>
+      <div>
+        <h3>Extra, extra</h3>
+        <span>
+          <p>Autor:Bruna</p>
+          <Link href="/new/1">
+            Ver notícia completa
+          </Link>
+        </span>
+      </div>
+      <div>
+        <h3>Extra, extra</h3>
+        <span>
+          <p>Autor:Bruna</p>
+          <Link href="/new/1">
+            Ver notícia completa
+          </Link>
+        </span>
+      </div>
+      <div>
+        <h3>Extra, extra</h3>
+        <span>
+          <p>Autor:Bruna</p>
+          <Link href="/new/1">
+            Ver notícia completa
+          </Link>
+        </span>
+      </div>
+      <div>
+        <h3>Extra, extra</h3>
+        <span>
+          <p>Autor:Bruna</p>
+          <Link href="/new/1">
+            Ver notícia completa
+          </Link>
+        </span>
+      </div>
+    </ContainerHome>
   )
 }
