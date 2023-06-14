@@ -45,7 +45,8 @@ export const ContainerHome = styled('main', {
                 marginBottom: '1rem',
             },
 
-            a: {
+            button: {
+
                 marginTop: '2rem',
                 textDecoration: 'none',
                 color: '$green500',

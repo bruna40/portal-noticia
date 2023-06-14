@@ -1,8 +1,10 @@
 export async function getNews(title: string) {
-    const URL = `https://gnews.io/api/v4/search?q=${title}&lang=en&country=us&max=1&apikey=dc0bca51b354335a2666ae0abaa8d50c`;
+    // como fazer para expandir o conteudo da notcia?
+
+    const URL = `https://gnews.io/api/v4/search?q=${decodeURI(title)}&lang=en&country=us&max=9&apikey=dc0bca51b354335a2666ae0abaa8d50c`;
     const response = await fetch(URL);
     const data = await response.json();
-    const news = data.articles
+    const news = data.articles;
     return news;
 }
 

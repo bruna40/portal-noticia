@@ -2,6 +2,9 @@ import Link from "next/link";
 import { ContainerHome } from "../styles/pages";
 import { GetStaticProps } from "next";
 import { fetchNews } from "../service/fetch";
+import axios from "axios";
+import { useRouter } from "next/router";
+
 
 interface News {
   title: string;
@@ -11,6 +14,22 @@ interface News {
 
 
 export default function Home({ news }) {
+
+  const router = useRouter();
+  async function handleNews() {
+    try {
+      const response = await axios.get('/api/news', {
+        title: news.title,
+      });
+
+
+      router.push(`/new/${response.data.title}`)
+     
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
 
   return (
@@ -24,7 +43,7 @@ export default function Home({ news }) {
                 <img src={item.image} alt="imagem" width={4} height={4}/>
                 <p>{item.description}</p>
                 <Link href={`/new/${item.title}`}>
-                  Ver notícia completa
+                  <button onClick={handleNews}>Ver mais</button>
                 </Link>
               </span>
             </div>
