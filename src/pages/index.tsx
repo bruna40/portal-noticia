@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ContainerHome } from "../styles/pages";
-import { GetServerSideProps } from "next";
-import Image from "next/image";
+import { GetStaticProps } from "next";
+import { fetchNews } from "../service/fetch";
 
 interface News {
   title: string;
@@ -11,6 +11,7 @@ interface News {
 
 
 export default function Home({ news }) {
+
 
   return (
     <ContainerHome>
@@ -35,15 +36,14 @@ export default function Home({ news }) {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const URL = 'https://gnews.io/api/v4/search?q=example&lang=en&country=us&max=10&apikey=dc0bca51b354335a2666ae0abaa8d50c';
-  const response = await fetch(URL);
-  const data = await response.json();
-  const news = data.articles
 
+export const getStaticProps: GetStaticProps<any> = async () => {
+
+  const news = await fetchNews();
   return {
     props: {
       news
-    }
+    },
+    revalidate: 60 * 60 * 1 //1 hora
   }
 }
